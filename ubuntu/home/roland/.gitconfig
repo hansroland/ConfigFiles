@@ -1,0 +1,9 @@
+[user]
+	email = rsx@bluewin.ch
+	name = roland
+[core]
+	excludesfile = /home/roland/.gitignore
+[diff]
+    tool = meld
+[color]
+	ui = true

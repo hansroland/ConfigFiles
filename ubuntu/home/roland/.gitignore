@@ -1,0 +1,17 @@
+# Alle Duplikate
+*~
+
+# Für Haskell: From http://help.github.com/git-ignore
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+.virtualenv
+.hsenv
+.cabal-sandbox/
+.ipynb_checkpoints
+cabal.sandbox.config
+cabal.config
+
