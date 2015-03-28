@@ -47,6 +47,8 @@
     environment.systemPackages = with pkgs; [
       firefoxWrapper
       chromium
+      gnome3.gedit
+      gitg
   #   wget
     ];
 
@@ -64,8 +66,9 @@
   services.xserver.xkbOptions = "eurosign:e";
 
   # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.kdm.enable = true;
+  services.xserver.displayManager.slim.enable = true;
   services.xserver.desktopManager.kde4.enable = true;
+  services.xserver.desktopManager.gnome3.enable = true;
   services.xserver.autorun=false;
 
 
