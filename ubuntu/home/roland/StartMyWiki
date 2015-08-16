@@ -1,3 +1,3 @@
 #!/bin/bash 
 cd /home/roland/MyWiki
-gitit
+gitit -p 5001
