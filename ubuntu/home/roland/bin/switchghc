@@ -1,0 +1,5 @@
+#!/bin/bash 
+cd $HOME/GHC-compiler/bin
+rm -f ghc
+ln -s `pwd`/ghc-$1 ghc
+ghc --version

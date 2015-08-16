@@ -6,6 +6,10 @@
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
+
+# to use updated .profile without log off
+# source ~/.profile
+
 #umask 022
 
 # if running bash
@@ -21,12 +25,19 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+
 # set PATH so it includes user's .cabal\bin if it exists
 if [ -d "$HOME/.cabal/bin" ] ; then
     PATH="$HOME/.cabal/bin:$PATH"
 fi
 
+# set PATH so it includes my ghcjs bin if it exists
+if [ -d "$HOME/GHCJS/.cabal-sandbox/bin" ] ; then
+    PATH="$HOME/GHCJS/.cabal-sandbox/bin:$PATH"
+fi
+
 # See: https://gist.github.com/yantonov/10083524
-export GHC_HOME=$HOME/Development/bin/ghc  
+# export GHC_HOME=$HOME/Development/bin/ghc  
+export GHC_HOME=$HOME/GHC-compiler/bin/ghc  
 export PATH=$GHC_HOME/bin:${PATH}
 
