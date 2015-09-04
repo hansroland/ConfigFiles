@@ -1,0 +1,3 @@
+#!/bin/bash 
+cd /home/roland/RSXWiki
+gitit -p 5002
