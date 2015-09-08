@@ -3,21 +3,23 @@
 # A small script to switch the ghc version
 # ----------------------------------------
 
-cd $HOME/GHC-compiler/bin
-# declare the variables with the versions I have currently installed
-declare -r ghc7102="7.10.2"
-declare -r ghc7101="7.10.1"
-declare -r ghc7084="7.8.4"
-declare -r ghc7083="7.8.3"
+# The base directory with our ghc versions
+dirCompiler="$HOME/GHC-compiler/bin"
+cd $dirCompiler
 
-# check the version and switch or issue error message
-if (test "$1" == "$ghc7101") || (test "$1" == "$ghc7102") || (test "$1" == "$ghc7084") || (test "$1" == "$ghc7083");
+# the ghc executable
+exeGhc="$dirCompiler/ghc-$1/bin/ghc"
+
+#does it exist
+if [ -f "$exeGhc" ];
 then
   rm -f ghc
   ln -s `pwd`/ghc-$1 ghc
   # display the version of the currently active ghc
   ghc --version
 else
-  echo "Wrong GHC version" 
-  echo "Supported versions are 7.8.3, 7.8.4, 7.10.1, 7.10.2"
+  echo "Wrong GHC version"
+  echo "Supported versions are:"
+  ls -d "$dirCompiler"/ghc-*
+  echo "usage: switchghc x.y.z"
 fi
