@@ -4,7 +4,7 @@
 # ----------------------------------------
 
 # The base directory with our ghc versions
-dirCompiler="$HOME/GHC-compiler/bin"
+dirCompiler="$HOME/Software"
 cd $dirCompiler
 
 # the ghc executable
