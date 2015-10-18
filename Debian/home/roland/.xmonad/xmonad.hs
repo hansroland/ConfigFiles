@@ -1,13 +1,13 @@
 -- ------------------------------------------------------------
 -- xmonad.hs Configuration file for XMonad
 -- ------------------------------------------------------------
--- 
+--
 -- Introduction:
 -- See: http://www.haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen%27s_Configuration
---      
+--
 --
 -- Other examples:
---     http://haskell.org/haskellwiki/Xmonad/Config_archive 
+--     http://haskell.org/haskellwiki/Xmonad/Config_archive
 --
 --
 -- Full Documentation of options: XMonad.Core.Xconfig
@@ -16,21 +16,25 @@
 -- ------------------------------------------------------------
 
 import XMonad
+import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Wallpaper
 import System.IO
 
 main = do
    xmproc <- spawnPipe "xmobar"
-   spawn "sh /home/roland/StartMyWiki"
-   xmonad $ defaultConfig
+   -- start RSXWiki in an own process
+   spawn "sh /home/roland/bin/StartRSXWiki"
+   setRandomWallpaper ["$HOME/Bilder/Wallpapers"]
+   xmonad $ desktopConfig
      { borderWidth        = 4
      , terminal           = "gnome-terminal"
      , normalBorderColor  = "#cccccc"
-     , focusedBorderColor = "#ff0000" 
+     , focusedBorderColor = "#ff0000"
      , manageHook = manageDocks <+> manageHook defaultConfig
      , logHook = dynamicLogWithPP $ xmobarPP
                         { ppOutput = hPutStrLn xmproc
