@@ -1,0 +1,25 @@
+#!/bin/bash 
+# ----------------------------------------
+# A small script to switch the ghc version
+# ----------------------------------------
+
+# The base directory with our ghc versions
+dirCompiler="$HOME/Software"
+cd $dirCompiler
+
+# the ghc executable
+exeGhc="$dirCompiler/ghc-$1/bin/ghc"
+
+#does it exist
+if [ -f "$exeGhc" ];
+then
+  rm -f ghc
+  ln -s `pwd`/ghc-$1 ghc
+  # display the version of the currently active ghc
+  ghc --version
+else
+  echo "Wrong GHC version"
+  echo "Supported versions are:"
+  ls -d "$dirCompiler"/ghc-*
+  echo "usage: switchghc x.y.z"
+fi
