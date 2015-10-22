@@ -29,6 +29,7 @@ main = do
    xmproc <- spawnPipe "xmobar"
    -- start RSXWiki in an own process
    spawn "sh /home/roland/bin/StartRSXWiki"
+   spawn "sh /home/roland/bin/MyRSXWiki"
    setRandomWallpaper ["$HOME/Bilder/Wallpapers"]
    xmonad $ desktopConfig
      { borderWidth        = 4
@@ -41,5 +42,5 @@ main = do
                         , ppTitle = xmobarColor "green" "" . shorten 50
                         }
      , layoutHook = smartBorders $ avoidStruts $  layoutHook  defaultConfig
-     --, modMask = mod4Mask   -- Rebind Mod to the Windows key (for Virtual machines)
+     , modMask = mod4Mask   -- Rebind Mod to the Windows key
      }
