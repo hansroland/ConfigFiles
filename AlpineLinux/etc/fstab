@@ -1,0 +1,6 @@
+UUID=0b8c3147-ff8c-491e-b5fd-e78d44902210	/	ext4	rw,relatime,data=ordered 0 0
+UUID=f9510f3b-7a9d-4a08-8f50-82402176a40f	/boot	ext4	rw,relatime,data=ordered 0 0
+UUID=7e87c5ff-87d5-4d48-96dd-ca165a59d1be	swap	swap	defaults	0 0
+/dev/cdrom	/media/cdrom	iso9660	noauto,ro 0 0
+/dev/fd0	/media/floppy	vfat	noauto	0 0
+/dev/sda1	/media/usb	ext3	noauto	0 0
