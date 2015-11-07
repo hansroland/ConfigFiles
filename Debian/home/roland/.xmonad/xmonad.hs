@@ -29,7 +29,7 @@ main = do
    xmproc <- spawnPipe "xmobar"
    -- start RSXWiki in an own process
    spawn "sh /home/roland/bin/StartRSXWiki"
-   spawn "sh /home/roland/bin/MyRSXWiki"
+   spawn "sh /home/roland/bin/StartMyWiki"
    setRandomWallpaper ["$HOME/Bilder/Wallpapers"]
    xmonad $ desktopConfig
      { borderWidth        = 4
