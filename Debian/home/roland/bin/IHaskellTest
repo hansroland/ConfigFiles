@@ -1,0 +1,3 @@
+#!/bin/bash 
+cd /home/roland/Projekte/IHaskell
+cabal exec ipython -- notebook ~/Projekte
