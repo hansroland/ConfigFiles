@@ -15,7 +15,13 @@ cabal-dev
 cabal.sandbox.config
 cabal.config
 
+# Für GHCJS
+*.jsexe
+*.js_hi
+*.js_o
+
 # Für Rust
 target
+build
 Cargo.lock
 
