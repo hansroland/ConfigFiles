@@ -36,4 +36,4 @@ fi
 
 
 # Establish the default ghc version
-switchghc 7.10.3
+switchghc 8.0.1
