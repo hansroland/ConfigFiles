@@ -19,6 +19,9 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# Set the path to the local cabal file
+PATH="$HOME/.cabal/bin:$PATH"
+
 # Set the path to the current GHC compiler
 # See: https://gist.github.com/yantonov/10083524
 export GHC_HOME=$HOME/Software/ghc  
@@ -36,4 +39,7 @@ fi
 
 
 # Establish the default ghc version
-switchghc 8.0.1
+switchghc 7.10.3
+
+# Magic to activate OPAM installed software
+. /home/roland/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
