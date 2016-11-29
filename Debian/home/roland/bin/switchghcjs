@@ -1,0 +1,27 @@
+#!/bin/bash 
+# ----------------------------------------
+# A small script to switch the ghcjs version
+# ----------------------------------------
+
+# The base directory with our ghc versions
+dirCompiler="$HOME/Software"
+cd $dirCompiler
+
+# the ghc executable
+exeGhcjs="$dirCompiler/ghcjs-$1/bin/ghcjs"
+
+#does it exist
+if [ -f "$exeGhcjs" ];
+then
+  rm -f ghcjs
+  ln -s `pwd`/ghcjs-$1 ghcjs
+  # display the version of the currently active ghc
+  ghcjs --version
+  # copy the global stack.yaml file from the repository
+  # NOT USED YET cp /home/roland/Projekte/ConfigFiles/Debian/home/roland/.stack/global-project/stack-$1.yaml /home/roland/.stack/global-project/stack.yaml
+else
+  echo "Wrong GHCJS version"
+  echo "Supported versions are:"
+  ls -d "$dirCompiler"/ghcjs-*
+  echo "usage: switchghcjs x.y.z"
+fi
