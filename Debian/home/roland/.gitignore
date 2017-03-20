@@ -3,6 +3,7 @@
 
 # Für Haskell: From http://help.github.com/git-ignore
 dist
+dist-newstyle
 cabal-dev
 *.o
 *.hi
@@ -25,4 +26,5 @@ cabal.config
 target
 build
 Cargo.lock
+
 
