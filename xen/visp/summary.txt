@@ -1,0 +1,8 @@
+Installation Summary
+---------------------
+Hostname        :  visp
+Distribution    :  jessie
+MAC Address     :  00:16:3E:97:74:A8
+IP Address(es)  :  dynamic
+RSA Fingerprint :  1c:eb:f6:f6:10:6e:0d:ca:88:57:84:8e:c4:9b:93:2d
+

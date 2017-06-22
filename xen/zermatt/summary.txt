@@ -1,0 +1,8 @@
+Installation Summary
+---------------------
+Hostname        :  zermatt
+Distribution    :  jessie
+MAC Address     :  00:16:3E:E4:35:9C
+IP Address(es)  :  dynamic
+RSA Fingerprint :  4b:24:7b:47:35:6a:ac:0e:ad:5b:85:e1:ae:b5:33:b2
+

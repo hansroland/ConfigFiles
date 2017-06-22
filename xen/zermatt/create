@@ -1,0 +1,7 @@
+sudo xen-create-image --hostname=zermatt \
+  --memory=1024mb \
+  --vcpus=2 \
+  --lvm=xen-vg \
+  --dhcp \
+  --pygrub \
+  --dist=jessie
