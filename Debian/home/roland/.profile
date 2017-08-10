@@ -26,19 +26,24 @@ fi
 export GHC_HOME=$HOME/Software/ghc  
 export PATH=$GHC_HOME/bin:${PATH}
 
-# Put the $HOME/bin logically before the GHC directory, so we can wrap ghc to
-# compile the xmonad config with a sandbox (later !!)
-# See: https://www.reddit.com/r/haskell/comments/2spurv/announce_xmonadentryhelper/
 
-
+# set PATH so it includes cabals bin if it exists
+if [ -d "$HOME/.cabal/bin" ] ; then
+    PATH="$HOME/.cabal/bin:$PATH"
+fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
 fi
 
 # 8.0.1 is the default Haskell version
 switchghc 8.0.1
 
-# 7.10.3 is the default GHCJS version
-switchghcjs 7.10.3
+# Avoid error in criterion benchmarking: 
+# ERROR: <stdout>: commitBuffer: invalid argument (invalid character)
+export LC_ALL=C.UTF-8
+
+# added by Nix installer
+if [ -e /home/roland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/roland/.nix-profile/etc/profile.d/nix.sh; fi 
+
