@@ -37,8 +37,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# 8.0.1 is the default Haskell version
-switchghc 8.0.1
+# 8.2.2 is the default Haskell version
+switchghc 8.2.2
 
 # Avoid error in criterion benchmarking: 
 # ERROR: <stdout>: commitBuffer: invalid argument (invalid character)
