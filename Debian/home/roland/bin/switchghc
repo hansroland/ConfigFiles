@@ -11,7 +11,7 @@ cd $dirCompiler
 exeGhc="$dirCompiler/ghc-$1/bin/ghc"
 
 #does it exist
-if [ -f "$exeGhc" ];
+if [ -x "$exeGhc" ];
 then
   rm -f ghc
   ln -s `pwd`/ghc-$1 ghc
