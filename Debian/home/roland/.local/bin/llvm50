@@ -1,0 +1,3 @@
+#!/bin/sh
+# use this script as . llvm50 or source llvm50
+export PATH=/usr/lib/llvm-5.0/bin:$PATH

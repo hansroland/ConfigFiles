@@ -11,7 +11,7 @@ cd $dirCompiler
 exeGhcjs="$dirCompiler/ghcjs-$1/bin/ghcjs"
 
 #does it exist
-if [ -x "$exeGhcjs" ];
+if [ -f "$exeGhcjs" ];
 then
   rm -f ghcjs
   ln -s `pwd`/ghcjs-$1 ghcjs

@@ -18,7 +18,7 @@ then
   # display the version of the currently active ghc
   ghc --version
   # copy the global stack.yaml file from the repository
-  cp /home/roland/Projekte/ConfigFiles/Debian/home/roland/.stack/global-project/stack-$1.yaml /home/roland/.stack/global-project/stack.yaml
+  # cp /home/roland/Software/ghc-$1/stack.yaml /home/roland/.stack/global-project/stack.yaml
 else
   echo "Wrong GHC version"
   echo "Supported versions are:"

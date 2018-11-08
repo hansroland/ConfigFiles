@@ -21,11 +21,6 @@ if [ -d "$HOME/Software/ghcjs/bin" ] ; then
     PATH="$HOME/Software/ghcjs/bin:$PATH"
 fi
 
-# Set the path to the current GHC compiler
-# See: https://gist.github.com/yantonov/10083524
-export GHC_HOME=$HOME/Software/ghc  
-export PATH=$GHC_HOME/bin:${PATH}
-
 
 # set PATH so it includes cabals bin if it exists
 if [ -d "$HOME/.cabal/bin" ] ; then
@@ -37,13 +32,21 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# 8.2.2 is the default Haskell version
-switchghc 8.2.2
+# Set the path to the current GHC compiler
+# See: https://gist.github.com/yantonov/10083524
+export GHC_HOME=$HOME/Software/ghc  
+export PATH=$GHC_HOME/bin:${PATH}
+
+# 8.4.2 is the default Haskell version
+switchghc 8.4.3
 
 # Avoid error in criterion benchmarking: 
 # ERROR: <stdout>: commitBuffer: invalid argument (invalid character)
 export LC_ALL=C.UTF-8
 
-# added by Nix installer
-if [ -e /home/roland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/roland/.nix-profile/etc/profile.d/nix.sh; fi 
+# set PATH so it includes Software/arcanist/bin if it exists
+if [ -d "$HOME/Software/arcanist/bin" ] ; then
+    PATH="$HOME/Software/arcanist/bin:$PATH"
+fi
 
+if [ -e /home/roland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/roland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

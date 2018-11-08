@@ -1,0 +1,37 @@
+#!/bin/bash -x
+# ----------------------------------------
+# A small script to switch the ghc version
+# ----------------------------------------
+
+set -e
+
+if [ -z "$1" ]
+then
+    echo "No argument supplied"
+    exit 1
+else
+  # get distribution
+  cd $HOME/Downloads
+  wget https://downloads.haskell.org/~ghc/$1/ghc-$1-x86_64-deb8-linux.tar.xz
+
+  tar xvfJ ghc-$1-x86_64-deb8-linux.tar.xz
+
+  cd ghc-$1
+
+  # install
+  mkdir $HOME/Software/ghc-$1
+
+  ./configure --prefix=$HOME/Software/ghc-$1
+  make install
+
+  # activate the new compiler
+  switchghc $1
+
+  # cleanup: remove temporary files
+  cd ..
+  rm -rfv ghc-$1*
+
+  # report new version
+  ghc --version
+
+fi

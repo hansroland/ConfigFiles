@@ -1,0 +1,3 @@
+#!/bin/sh
+# use this script as . llvm39 or source llvm39
+export PATH=/usr/lib/llvm-3.9/bin:$PATH
