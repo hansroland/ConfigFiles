@@ -1,0 +1,38 @@
+#!/bin/bash
+# ----------------------------------------
+# A small script to build ghc with hadrian
+# ----------------------------------------
+cmd1=""
+cmd2=""
+had="hadrian/build.sh"
+flavour="--flavour=devel2"
+freeze="--freeze1"
+threads="-j2"
+# No parameter specified
+if [ -z "$1" ]
+then
+    cmd2="$had $flavour $freeze $threads stage2:exe:ghc-bin"
+elif [ $1 = "test" ]
+then
+   cmd2="$had test $flavour $freeze $threads --only=$2"
+elif [ $1 = "full" ]
+then
+   cmd1="$had clean"
+   cmd2="$had -c $flavour $threads"
+elif [ $1 = "docs" ]
+then
+   cmd2="$had docs"
+else
+   echo "unrecognized parameter $1"
+   echo "valid parameters: <Nothing>, full, test <TEST-List>, docs"
+fi
+
+if [ ! -z "$cmd1" ]
+then
+   echo $cmd1
+   $cmd1
+fi
+
+
+echo $cmd2
+$cmd2
