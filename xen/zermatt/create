@@ -4,4 +4,4 @@ sudo xen-create-image --hostname=zermatt \
   --lvm=xen-vg \
   --dhcp \
   --pygrub \
-  --dist=jessie
+  --dist=stretch

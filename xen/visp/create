@@ -4,4 +4,4 @@ sudo xen-create-image --hostname=visp \
   --lvm=xen-vg \
   --dhcp \
   --pygrub \
-  --dist=jessie
+  --dist=stretch
