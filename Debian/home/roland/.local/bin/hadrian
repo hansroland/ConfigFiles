@@ -4,27 +4,53 @@
 # ----------------------------------------
 cmd1=""
 cmd2=""
-had="hadrian/build.sh"
-flavour="--flavour=devel2"
+cmd3=""
+cmd4=""
+had="hadrian/build"
+devel2="--flavour=devel2"
+prof="--flavour=prof"
 freeze="--freeze1"
 threads="-j2"
 # No parameter specified
 if [ -z "$1" ]
 then
-    cmd2="$had $flavour $freeze $threads stage2:exe:ghc-bin"
+    cmd2="$had $devel2 $freeze $threads stage2:exe:ghc-bin"
 elif [ $1 = "test" ]
 then
-   cmd2="$had test $flavour $freeze $threads --only=$2"
+   cmd2="$had test $devel2 $freeze $threads --only=$2 stage2:exe:ghc-bin"
+elif [ $1 = "validate" ]
+then
+   cmd2="$had test $devel2 $freeze $threads"
+
 elif [ $1 = "full" ]
 then
    cmd1="$had clean"
-   cmd2="$had -c $flavour $threads"
+   cmd2="./boot"
+   cmd3="./configure"
+   # removes -c option in next line !!
+   cmd4="$had $devel2 $threads"
+
+elif [ $1 = "prof" ]
+then
+   cmd2="$had -c $prof $freeze $threads stage2:exe:ghc-bin"
+
+elif [ $1 = "fullprof" ]
+then
+   cmd1="$had clean"
+   cmd2="$had -c $prof $threads"
+
+
 elif [ $1 = "docs" ]
 then
-   cmd2="$had docs"
+   cmd2="$had docs $freeze $threads"
+
+elif [ $1 = "testdir" ]
+then
+   cmd2="$had test $devel2 $freeze $threads --test-root-dirs=testsuite/tests/$2 stage2:exe:ghc-bin"
+
 else
    echo "unrecognized parameter $1"
-   echo "valid parameters: <Nothing>, full, test <TEST-List>, docs"
+   echo "valid parameters: <Nothing>, full, test <TEST-List>, validate, docs, fullprof, prof, testdir"
 fi
 
 if [ ! -z "$cmd1" ]
@@ -33,6 +59,21 @@ then
    $cmd1
 fi
 
+if [ ! -z "$cmd2" ]
+then
+      echo "$cmd2"
+      $cmd2
+fi
 
-echo $cmd2
-$cmd2
+if [ ! -z "$cmd3" ]
+then
+      echo "$cmd3"
+      $cmd3
+fi
+
+if [ ! -z "$cmd4" ]
+then
+      echo "$cmd4"
+      $cmd4
+fi
+
