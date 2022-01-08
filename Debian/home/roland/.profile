@@ -16,15 +16,9 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes Software/ghcjs/bin if it exists
-if [ -d "$HOME/Software/ghcjs/bin" ] ; then
-    PATH="$HOME/Software/ghcjs/bin:$PATH"
-fi
-
-
-# set PATH so it includes cabals bin if it exists
-if [ -d "$HOME/.cabal/bin" ] ; then
-    PATH="$HOME/.cabal/bin:$PATH"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
@@ -32,21 +26,18 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# -- Added by RSX
+# Avoid error in criterion benchmarking: 
+# ERROR: <stdout>: commitBuffer: invalid argument (invalid character)
+export LC_ALL=C.UTF-8
+
 # Set the path to the current GHC compiler
 # See: https://gist.github.com/yantonov/10083524
 export GHC_HOME=$HOME/Software/ghc  
 export PATH=$GHC_HOME/bin:${PATH}
 
-# 8.4.2 is the default Haskell version
-switchghc 8.4.3
+# Set the default Haskell version
+# -- ATTENTION: Compile Xmonad before changing the default GHC version!!!
+switchghc 9.0.1
 
-# Avoid error in criterion benchmarking: 
-# ERROR: <stdout>: commitBuffer: invalid argument (invalid character)
-export LC_ALL=C.UTF-8
-
-# set PATH so it includes Software/arcanist/bin if it exists
-if [ -d "$HOME/Software/arcanist/bin" ] ; then
-    PATH="$HOME/Software/arcanist/bin:$PATH"
-fi
-
-if [ -e /home/roland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/roland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export PATH="$HOME/.cargo/bin:$PATH"

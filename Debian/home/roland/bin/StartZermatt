@@ -1,6 +1,0 @@
-#!/bin/bash
-
-sudo xl create /etc/xen/zermatt.cfg
-sleep 10
-ssh -X zermatt
-

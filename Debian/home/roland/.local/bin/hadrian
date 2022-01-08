@@ -6,29 +6,41 @@ cmd1=""
 cmd2=""
 cmd3=""
 cmd4=""
+# had="hadrian/build.sh"
 had="hadrian/build"
-devel2="--flavour=devel2"
-prof="--flavour=prof"
+#
+#  quickest    - to do normal debugging
+#  devel2      - to be able to run tests + -DEBUG
+#
+#flavour="--flavour=devel2"
+#flavour="--flavour=quickest"
+
 freeze="--freeze1"
-threads="-j2"
+threads="-j1"
+opts="--docs=none --skip-perf"
+# Read flavour from file settings/hadrian.flavour
+flavour=`cat settings/hadrian.flavour`
+echo "$flavour"
+if [ -z "$flavour" ]
+then 
+    echo "settings/flavour.hadian not found or empty"
 # No parameter specified
-if [ -z "$1" ]
+elif [ -z "$1" ]
 then
-    cmd2="$had $devel2 $freeze $threads stage2:exe:ghc-bin"
+    cmd2="$had $flavour $freeze $threads $opts stage2:exe:ghc-bin"
 elif [ $1 = "test" ]
 then
-   cmd2="$had test $devel2 $freeze $threads --only=$2 stage2:exe:ghc-bin"
+   cmd2="$had test $flavour $freeze $threads $opts --only=$2 stage2:exe:ghc-bin"
 elif [ $1 = "validate" ]
 then
-   cmd2="$had test $devel2 $freeze $threads"
+   cmd2="$had test $flavour $freeze $threads $opts"
 
 elif [ $1 = "full" ]
 then
    cmd1="$had clean"
    cmd2="./boot"
    cmd3="./configure"
-   # removes -c option in next line !!
-   cmd4="$had $devel2 $threads"
+   cmd4="$had $flavour $threads $opts"
 
 elif [ $1 = "prof" ]
 then
@@ -37,7 +49,9 @@ then
 elif [ $1 = "fullprof" ]
 then
    cmd1="$had clean"
-   cmd2="$had -c $prof $threads"
+   cmd2="./boot"
+   cmd3="./configure"
+   cmd4="$had -c $prof $threads"
 
 
 elif [ $1 = "docs" ]
@@ -46,11 +60,16 @@ then
 
 elif [ $1 = "testdir" ]
 then
-   cmd2="$had test $devel2 $freeze $threads --test-root-dirs=testsuite/tests/$2 stage2:exe:ghc-bin"
+   cmd2="$had test $flavour $freeze $threads --test-root-dirs=testsuite/tests/$2 stage2:exe:ghc-bin"
+
+elif [ $1 = "lint" ]
+then
+   cmd2="$had lint:compiler"
 
 else
    echo "unrecognized parameter $1"
-   echo "valid parameters: <Nothing>, full, test <TEST-List>, validate, docs, fullprof, prof, testdir"
+   echo "valid parameters: <Nothing>, full, test <TEST>, validate, docs, fullprof, prof, testdir <DIR>, lint"
+   echo "testdir parameter <DIR> without 'testsuite/tests/'"
 fi
 
 if [ ! -z "$cmd1" ]

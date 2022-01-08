@@ -12,8 +12,11 @@ then
 else
   # get distribution
   cd $HOME/Downloads
-  wget https://downloads.haskell.org/~ghc/$1/ghc-$1-x86_64-deb9-linux.tar.xz
 
+  # wget https://downloads.haskell.org/~ghc/$1/ghc-$1-x86_64-deb8-linux.tar.xz
+  # tar xvfJ ghc-$1-x86_64-deb8-linux.tar.xz
+
+  wget https://downloads.haskell.org/~ghc/$1/ghc-$1-x86_64-deb9-linux.tar.xz
   tar xvfJ ghc-$1-x86_64-deb9-linux.tar.xz
 
   cd ghc-$1
