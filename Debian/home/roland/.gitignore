@@ -4,6 +4,7 @@
 # Für Haskell: From http://help.github.com/git-ignore
 dist
 dist-newstyle
+cabal.project.local
 cabal-dev
 *.o
 *.hi
@@ -16,6 +17,9 @@ cabal-dev
 cabal.sandbox.config
 cabal.config
 .stack-work/
+.ghc.*
+_validatebuild
+
 
 # Für GHCJS
 *.jsexe
@@ -26,5 +30,4 @@ cabal.config
 target
 build
 Cargo.lock
-
 

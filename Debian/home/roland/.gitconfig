@@ -1,11 +1,36 @@
 [user]
 	email = rsx@bluewin.ch
-	name = roland
+	name = Roland Senn
 [core]
 	excludesfile = /home/roland/.gitignore
+	editor = gedit
 [diff]
     tool = meld
 [color]
 	ui = true
 [url "git://github.com/ghc/packages-"]
 	insteadOf = git://github.com/ghc/packages/
+[url "http://github.com/ghc/packages-"]
+	insteadOf = http://github.com/ghc/packages/
+[url "https://github.com/ghc/packages-"]
+	insteadOf = https://github.com/ghc/packages/
+[url "ssh://git@github.com/ghc/packages-"]
+	insteadOf = ssh://git@github.com/ghc/packages/
+[url "git@github.com:ghc/packages-"]
+	insteadOf = git@github.com:ghc/packages/
+[url "git://github.com/hansroland/packages-"]
+	insteadOf = git://github.com/hansroland/packages/
+[url "http://github.com/hansroland/packages-"]
+	insteadOf = http://github.com/hansroland/packages/
+[url "https://github.com/hansroland/packages-"]
+	insteadOf = https://github.com/hansroland/packages/
+[url "ssh://git@github.com/hansroland/packages-"]
+	insteadOf = ssh://git@github.com/hansroland/packages/
+[alias]
+	pullghc = "!f(){ git pull --ff-only \"$@\" && git submodule update --init --recursive; }; f"
+[merge]
+	tool = meld
+[url "ssh://git@git.haskell.org/"]
+	pushInsteadOf = git://git.haskell.org/
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager-core

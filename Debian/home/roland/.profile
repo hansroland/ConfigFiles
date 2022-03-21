@@ -41,3 +41,7 @@ export PATH=$GHC_HOME/bin:${PATH}
 switchghc 9.0.1
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Set the Git Credential manager method 
+export GCM_CREDENTIAL_STORE=cache
+
