@@ -1,6 +1,0 @@
-Installation Summary
----------------------
-
-See Goms: /var/log/xen-tools/zermatt.log
-
-

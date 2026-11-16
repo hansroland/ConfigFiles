@@ -1,4 +1,0 @@
-Installation Summary
----------------------
-
-See Goms: /var/log/xen-tools/visp.log

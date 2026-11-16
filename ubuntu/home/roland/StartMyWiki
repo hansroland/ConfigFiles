@@ -1,3 +1,0 @@
-#!/bin/bash 
-cd /home/roland/MyWiki
-gitit -p 5001

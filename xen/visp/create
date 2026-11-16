@@ -1,7 +1,0 @@
-sudo xen-create-image --hostname=visp \
-  --memory=1024mb \
-  --vcpus=1 \
-  --lvm=xen-vg \
-  --dhcp \
-  --pygrub \
-  --dist=stretch

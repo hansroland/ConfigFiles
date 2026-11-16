@@ -1,3 +1,0 @@
-Minimal debian installation
-
-https://debian-administration.org/article/432/Debian_Etch_-_A_minimal_setup_with_X

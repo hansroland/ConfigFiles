@@ -45,3 +45,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Set the Git Credential manager method 
 export GCM_CREDENTIAL_STORE=cache
 
+# Start RSX Wiki
+
